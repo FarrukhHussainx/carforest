@@ -6,7 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const AAA = () => {
   return (
-    <div className="relative xl:h-screen 2xl:h-[80vh] w-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="relative xl:h-screen 2xl:h-[80vh] w-[100%] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="absolute inset-y-0 right-0 w-[80vw] ">
         <Image className="w-[100%]" src={dm} alt="background image " />
       </div>

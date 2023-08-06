@@ -32,7 +32,7 @@ const GetData = async ({ allCarsBySearch }) => {
   console.log(data);
   return (
     <>
-      <div className="mt-4 mx-auto w-[88%] sm:w-11/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-3 lg:grid-cols-4 2xl:grid-cols-5">
+      <div className="mt-4 mx-auto w-[88%] sm:w-[96%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-3 xl:grid-cols-4 xl:gap-4  2xl:grid-cols-5">
         {/* isMember ? '$2.00' : '$10.00' */}
         {data ? (
           data.map((product) => <ProductCard data={product} />)

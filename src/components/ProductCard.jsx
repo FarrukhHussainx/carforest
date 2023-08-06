@@ -33,7 +33,7 @@ const ProductCard = ({ data }) => {
   return (
     <>
       <div
-        className="bg-blue-100 mx-auto rounded-md p-2 shadow-md hover:shadow-blue-400 mb-3 relative"
+        className="bg-blue-100 mx-auto rounded-md p-2 shadow-md hover:shadow-blue-400  relative"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
