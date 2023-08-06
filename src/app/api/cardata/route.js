@@ -16,6 +16,10 @@ export const GET = async (request) => {
     const sort = searchParams.get("sort");
     const pageNumber = parseInt(page) || 1;
     const itemsPerPage = parseInt(limit) || 10;
+    const min = searchParams.get("min");
+    const minPrice = parseInt(min);
+    const maxPrice = searchParams.get("max");
+    const year = searchParams.get("year");
 
     const postx = await carmodel.find();
     //search functionality
@@ -34,6 +38,14 @@ export const GET = async (request) => {
       ? results.filter((product) =>
           product.location.toLowerCase().includes(location.toLowerCase())
         )
+      : results;
+
+    results = minPrice
+      ? results.filter((product) => minPrice < product.price)
+      : results;
+
+    results = maxPrice
+      ? results.filter((product) => maxPrice > product.price)
       : results;
 
     //pagination functionality

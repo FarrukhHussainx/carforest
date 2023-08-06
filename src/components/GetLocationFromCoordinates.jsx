@@ -22,11 +22,10 @@ const GetLocationFromCoordinates = async (latitude, longitude) => {
 
       console.log("Locality:", locality.long_name);
       console.log("Neighborhood:", neighborhood.long_name);
-      console.log("Country:", country.long_name);
-      console.log("Place Name:", placeName);
-      const locationData=
-      {location,locality}
-      return locationData
+      // console.log("Country:", country.long_name);
+      // console.log("Place Name:", placeName);
+      const locationData = { location, locality };
+      return locationData;
     }
     // if (response.data && response.data.results.length > 0) {
     //   const addressComponents = response.data.results[0].address_components;

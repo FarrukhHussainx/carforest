@@ -8,11 +8,12 @@ import cross3 from "/public/cross3.jpg";
 import steering from "/public/steering-3.svg";
 import fuel from "/public/fuel-9.svg";
 import tyre from "/public/tyre-1.svg";
-import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import MyModal from "./Dialog";
 
 const ProductCard = ({ data }) => {
   let [isOpen, setIsOpen] = useState(false);
+  const [btnShow, setBtnShow] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -21,9 +22,21 @@ const ProductCard = ({ data }) => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const handleMouseEnter = () => {
+    setBtnShow(true);
+  };
+
+  const handleMouseLeave = () => {
+    setBtnShow(false);
+  };
   return (
     <>
-      <div className="bg-blue-100 mx-auto rounded-md p-2 shadow-md hover:shadow-blue-400 mb-3">
+      <div
+        className="bg-blue-100 mx-auto rounded-md p-2 shadow-md hover:shadow-blue-400 mb-3 relative"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <Image
           className="w-[300px] h-[200px] rounded-md"
           src={data.image[0].secure_url}
@@ -37,11 +50,6 @@ const ProductCard = ({ data }) => {
         </div>
         <div className="flex justify-start items-center gap-1 text-green-900 ml-2 mt-2">
           <h1 className="font-medium">RS 230000</h1>
-        </div>
-        <div className="flex justify-start items-center gap-1 text-green-900 ml-2 mt-2">
-          <button className="bg-blue-600" onClick={openModal}>
-            open details
-          </button>
         </div>
         <div className="flex justify-between gap-3 mt-2">
           <div className="flex flex-col items-center">
@@ -57,62 +65,20 @@ const ProductCard = ({ data }) => {
             <h1 className="text-gray-500">{data.fuelType}</h1>
           </div>
         </div>
-      </div>
-      {/*  */}
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Payment successful
-                  </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
+        {btnShow && (
+          <div className="absolute bottom-0 w-full right-0 left-0  rounded-md">
+            <button
+              className="bg-blue-600 w-full p-12 rounded-md opacity-90 text-white text-lg"
+              onClick={openModal}
+            >
+              Open Details
+            </button>
           </div>
-        </Dialog>
-      </Transition>
+        )}
+      </div>
+      {isOpen && (
+        <MyModal data={data} closeModal={closeModal} isOpen={isOpen} />
+      )}
     </>
   );
 };

@@ -4,12 +4,13 @@ import Image from "next/image";
 import ProductCard from "./ProductCard";
 //import SeeMore from "./SeeMore";
 
-async function fetchDataFromApi() {
-  //const { make, model, page, limit, location } = allCarsBySearch;
-  //   const res = await fetch(
-  //     `http://localhost:3000/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}`
-  //   );
-  const res = await fetch(`http://localhost:3000/api/cardata`);
+async function fetchDataFromApi(allCarsBySearch) {
+  const { make, model, page, limit, location, min, max, year } =
+    allCarsBySearch;
+  const res = await fetch(
+    `http://localhost:3000/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}&min=${min}&max=${max}&year=${year}`
+  );
+
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -23,8 +24,8 @@ async function fetchDataFromApi() {
   return d;
 }
 
-const GetData = async () => {
-  const data = await fetchDataFromApi();
+const GetData = async ({ allCarsBySearch }) => {
+  const data = await fetchDataFromApi(allCarsBySearch);
   //find length of data
   const keysArray = Object.keys(data);
   const c = keysArray.length;

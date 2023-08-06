@@ -33,7 +33,7 @@ const PlaceAdd = () => {
       locationx.longitude
     );
     setLocation(locationData.location);
-    console.log(locationData.locality.long_name);
+    console.log(locationData.locality.long_name + "fff");
     setCarData((prevData) => ({
       ...prevData,
       city: locationData.locality.long_name,
@@ -214,7 +214,7 @@ const PlaceAdd = () => {
           className="w-full px-4 py-2 mb-2 border rounded"
         />
         <input
-          type="text"
+          type="number"
           name="price"
           value={carData.price}
           onChange={handleChange}
