@@ -2,6 +2,7 @@ import AAA from "@/components/AAA";
 import GetData from "@/components/GetData";
 import Hero from "@/components/Hero";
 import { InputT } from "@/components/InaputT";
+import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
 
 import Image from "next/image";
@@ -21,6 +22,7 @@ export default function Home({ searchParams }) {
   };
   return (
     <>
+      <NavBar />
       <AAA />
       <div className="flex justify-between mb-10 mt-2 h-28 items-center ">
         <SearchBar />

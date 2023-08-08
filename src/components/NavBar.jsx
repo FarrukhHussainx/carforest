@@ -4,6 +4,7 @@ import main from "/public/main.png";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import Link from "next/link";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -44,9 +45,11 @@ const NavBar = () => {
             </h1>
           </div>
           <div className="mr-24 flex cursor-pointer">
-            <button className="w-24 text-md text-white bg-blue-600 rounded-full shadow-md p-2 hover:shadow-blue-400 z-30">
-              Sell
-            </button>
+            <Link href="/placeadd">
+              <button className="w-24 text-md text-white bg-blue-600 rounded-full shadow-md p-2 hover:shadow-blue-400 z-30">
+                Sell
+              </button>
+            </Link>
           </div>
         </div>
       </div>

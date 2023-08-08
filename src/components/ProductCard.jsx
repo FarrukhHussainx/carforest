@@ -10,6 +10,47 @@ import fuel from "/public/fuel-9.svg";
 import tyre from "/public/tyre-1.svg";
 import { Fragment, useState } from "react";
 import MyModal from "./Dialog";
+import { motion } from "framer-motion";
+
+const carVarience = {
+  hidden: { opacity: 0, x: 1000 },
+  visible: { opacity: 1, x: 0 },
+};
+const containerVarience = {
+  //className="bg-blue-600 w-full p-12 rounded-md opacity-90 text-white text-lg",
+  hidden: {
+    opacity: 0,
+
+    width: "100%",
+    padding: "0px",
+    fontSize: "0px",
+    color: "#fff",
+    fontSize: "0px",
+    lineHeight: "0px",
+  },
+  visible: {
+    backgroundColor: "rgb(37,99,235)",
+    width: "100%",
+    padding: "48px",
+    fontSize: "50px",
+    color: "#fff",
+    fontSize: "1.125rem",
+    lineHeight: "1.75rem",
+    x: 0,
+    y: 0,
+    borderRadius: "0.375rem",
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      // mass: 0.4,
+      // damping: 8,
+      type: "ease in",
+      stiffness: 120,
+      // when: "beforeChildren",
+      // staggerChildren: 0.4,
+    },
+  },
+};
 
 const ProductCard = ({ data }) => {
   let [isOpen, setIsOpen] = useState(false);
@@ -66,14 +107,15 @@ const ProductCard = ({ data }) => {
           </div>
         </div>
         {btnShow && (
-          <div className="absolute bottom-0 w-full right-0 left-0  rounded-md">
-            <button
-              className="bg-blue-600 w-full p-12 rounded-md opacity-90 text-white text-lg"
-              onClick={openModal}
-            >
-              Open Details
-            </button>
-          </div>
+          <motion.div
+            variants={containerVarience}
+            initial="hidden"
+            animate="visible"
+            className="absolute bottom-0 w-full right-0 left-0  rounded-md cursor-pointer"
+            onClick={openModal}
+          >
+            <button className="w-full">Open Details</button>
+          </motion.div>
         )}
       </div>
       {isOpen && (

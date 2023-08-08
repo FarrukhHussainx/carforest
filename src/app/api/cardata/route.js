@@ -84,6 +84,8 @@ export const POST = async (request) => {
     description,
     image,
     location,
+    username,
+    phone,
   } = await request.json();
 
   const x = Date.now();
@@ -116,6 +118,8 @@ export const POST = async (request) => {
         description,
         image: ggg,
         location,
+        username,
+        phone,
       });
 
       product.save();

@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import main from "/public/main.png";
 import Image from "next/image";
 import Slider from "./Slider";
 import { InputT } from "./InaputT";
+import { signOut } from "next-auth/react";
 
 const Footer = () => {
   return (
@@ -10,7 +12,7 @@ const Footer = () => {
       <div className=" w-full  h-32 mt-10 bg-slate-800/80 ">
         <hr className="border-t-2" />
         <div className="flex mt-4 ml-4 sm:ml-8 gap-1">
-          <Image src={main} width={30} height={10} />
+          <Image src={main} width={30} height={10} alt="footer" />
           <h1 className="font-medium font-mono text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900">
             Car-Forest
           </h1>
@@ -23,6 +25,7 @@ const Footer = () => {
           <br />
           <br />
         </div>
+        <button onClick={() => signOut()}>Sign out</button>
       </div>
     </>
   );
