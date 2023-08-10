@@ -212,6 +212,7 @@ const PlaceAdd = () => {
               <div className="grid grid-cols-3 xl:grid-cols-6">
                 {productImage.map((item) => (
                   <Image
+                    key={item}
                     src={item}
                     width={150}
                     height={150}

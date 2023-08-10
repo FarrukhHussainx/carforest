@@ -43,7 +43,7 @@ export default function Component() {
       >
         <div className="flex flex-col">
           <div className="flex z-10 gap-2">
-            <Image src={main} width={50} height={50} />
+            <Image src={main} width={50} height={50} alt="image"/>
             <h1 className="font-bold font-mono text-3xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-pink-800">
               Car-Forest
             </h1>
