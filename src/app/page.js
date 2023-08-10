@@ -24,7 +24,7 @@ export default function Home({ searchParams }) {
     <>
       <NavBar />
       <AAA />
-      <div className="flex justify-between mb-10 mt-2 h-28 items-center ">
+      <div className="flex xl:justify-between mb-10 mt-2 h-28 xl:items-center flex-col xl:flex-row">
         <SearchBar />
         <InputT />
       </div>

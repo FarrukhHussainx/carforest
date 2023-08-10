@@ -18,7 +18,8 @@ export const GET = async (request) => {
     const itemsPerPage = parseInt(limit) || 10;
     const min = searchParams.get("min");
     const minPrice = parseInt(min);
-    const maxPrice = searchParams.get("max");
+    const max = searchParams.get("max");
+    const maxPrice = parseInt(max);
     const year = searchParams.get("year");
 
     const postx = await carmodel.find();
@@ -48,6 +49,10 @@ export const GET = async (request) => {
       ? results.filter((product) => maxPrice > product.price)
       : results;
 
+    results = year
+      ? results.filter((product) => year === product.year)
+      : results;
+
     //pagination functionality
     // // Calculate the starting index and ending index based on the page number and limit
     // const startIndex = (pageNumber - 1) * itemsPerPage;
@@ -60,7 +65,9 @@ export const GET = async (request) => {
 
     return new NextResponse(JSON.stringify(results), { status: 201 });
   } catch (error) {
-    return new NextResponse("Database Error", { status: 500 });
+    return new NextResponse(JSON.stringify({ message: error }), {
+      status: 500,
+    });
   }
 };
 

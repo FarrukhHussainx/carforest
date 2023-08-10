@@ -1,8 +1,10 @@
 import axios from "axios";
+import { urlx } from "./url";
 
 const GetLocationFromCoordinates = async (latitude, longitude) => {
-  const API_KEY = "AIzaSyA3Ku9PODZml5k9Ema3DnNvh2MfyBljP1Y";
-  const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`;
+  //const API_KEY = "AIzaSyA3Ku9PODZml5k9Ema3DnNvh2MfyBljP1Y";
+  console.log(urlx);
+  const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${urlx.name}`;
 
   try {
     const response = await axios.get(apiUrl);

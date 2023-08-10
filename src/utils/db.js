@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { urlx } from "@/components/url";
 let isConnected = false;
 
 const connectDB = async () => {
@@ -7,7 +8,8 @@ const connectDB = async () => {
     return;
   }
   try {
-    const DB = "mongodb://0.0.0.0:27017";
+    const DB = urlx.DB;
+    //const DB = "mongodb://0.0.0.0:27017";
     mongoose.set("strictQuery", true);
     await mongoose.connect(DB, {
       //dbName: "test",

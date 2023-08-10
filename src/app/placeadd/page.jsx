@@ -11,10 +11,12 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
+import { urlx } from "@/components/url";
 
 const PlaceAdd = () => {
-  const notify = () => toast.success("Add Posted Successfully");
-  const notifye = () => toast.error("An Error Occur");
+  const notify = () => toast.success(`Add Successfully Posted`);
+  const notifye = () => toast.error("An Error Occur, Please fill all fields");
   const session = useSession();
   const router = useRouter();
   const [productImage, setProductImage] = useState("");
@@ -121,11 +123,17 @@ const PlaceAdd = () => {
     try {
       const response = await fetch(url, requestOptions);
       showBtn(true);
+
       if (!response.ok) {
         notifye();
       }
-      notify();
-      response.status === 201 && router.push("/");
+      console.log(response.status);
+
+      if (response.status === 201) {
+        notify();
+
+        router.push("/");
+      }
       const responseData = await response.json();
       console.log(responseData);
     } catch (error) {
@@ -133,7 +141,11 @@ const PlaceAdd = () => {
     }
   };
   if (session.status === "loading") {
-    return <p>Loading...</p>;
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
   }
   if (session.status === "unauthenticated") {
     router.push("/login");
@@ -141,14 +153,14 @@ const PlaceAdd = () => {
   if (session.status === "authenticated") {
     return (
       <div className="">
-        <div className="flex flex-col justify-center items-center mt-20 mb-8 ">
-          <h1 className="text-2xl text-emerald-800 font-extrabold">
+        <div className="flex flex-col justify-center items-center xl:mt-20 mt-2 mb-8 ">
+          <h1 className="xl:text-2xl text-lg text-emerald-800 font-extrabold">
             Sell your Car With 3 Easy & Simple Steps!
           </h1>
-          <h3 className="text-2xl text-purple-900 mb-4">
+          <h3 className="xl:text-2xl text-lg text-purple-900 mb-4">
             It's free and takes less than a minute
           </h3>
-          <div className="flex justify-center">
+          <div className="md:flex justify-center hidden">
             <div className="flex  justify-center items-center gap-1 w-[20%]">
               <Image alt="image" src={car} className="w-[25%]" />
               <span className="text-gray-500">Enter Your Car Information</span>
@@ -162,9 +174,25 @@ const PlaceAdd = () => {
               <span className="text-gray-500">Enter Your Selling Price</span>
             </div>
           </div>
+          <div className="flex w-full md:hidden">
+            <div className="flex flex-col  justify-center items-center  w-[33.33%]">
+              <Image alt="image" src={car} className="w-[15%]" />
+              <span className="text-gray-500 text-xs">
+                Enter Car Information
+              </span>
+            </div>
+            <div className="flex flex-col  justify-center items-center  w-[33.33%]">
+              <Image alt="image" src={uploadpic} className="w-[15%]" />
+              <span className="text-gray-500 text-xs">Upload Photos</span>
+            </div>
+            <div className="flex flex-col  justify-center items-center  w-[33.33%]">
+              <Image alt="image" src={tag} className="w-[15%]" />
+              <span className="text-gray-500 text-xs">Enter Selling Price</span>
+            </div>
+          </div>
         </div>
 
-        <div className="w-[90vw] mx-auto p-4 shadow-md  mb-10 mt-16">
+        <div className="w-[90vw] mx-auto p-4 shadow-md  mb-10 xl:mt-16 mt-6">
           <label className="bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-lg p-4">
             <input
               type="file"
@@ -195,7 +223,7 @@ const PlaceAdd = () => {
             <div>
               <button
                 onClick={getLocation}
-                className="bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-lg p-4 flex justify-between gap-1 "
+                className="bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-lg p-4 flex justify-between gap-1 mt-2"
               >
                 <span>Get Location</span>
                 <Image src={locationpic} width={20} alt="location" />
@@ -238,6 +266,7 @@ const PlaceAdd = () => {
           <input
             type="number"
             name="price"
+            maxLength={9}
             value={carData.price}
             onChange={handleChange}
             placeholder="Price"
@@ -246,6 +275,7 @@ const PlaceAdd = () => {
           <input
             type="text"
             name="mileage"
+            maxLength={3}
             value={carData.mileage}
             onChange={handleChange}
             placeholder="Mileage/L"
@@ -282,6 +312,7 @@ const PlaceAdd = () => {
             <option value="">Select Fuel Type</option>
             <option value="Petrol">Petrol</option>
             <option value="Diesel">Diesel</option>
+            <option value="Hybrid">Hybrid</option>
             <option value="Electric">Electric</option>
             {/* Add more options if needed */}
           </select>

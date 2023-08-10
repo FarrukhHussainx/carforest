@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
+import { urlx } from "./url";
 //import SeeMore from "./SeeMore";
 
 async function fetchDataFromApi(allCarsBySearch) {
   const { make, model, page, limit, location, min, max, year } =
     allCarsBySearch;
   const res = await fetch(
-    `http://localhost:3000/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}&min=${min}&max=${max}&year=${year}`
+    `${urlx.url}/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}&min=${min}&max=${max}&year=${year}`
   );
 
   // The return value is *not* serialized
@@ -32,7 +33,7 @@ const GetData = async ({ allCarsBySearch }) => {
   console.log(data);
   return (
     <>
-      <div className="mt-4 mx-auto w-[88%] sm:w-[96%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-3 xl:grid-cols-4 xl:gap-4  2xl:grid-cols-5">
+      <div className="mt-4 mx-auto w-[88%] gap-3 sm:w-[96%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 md:gap-3 xl:grid-cols-4 xl:gap-4  2xl:grid-cols-5">
         {/* isMember ? '$2.00' : '$10.00' */}
         {data ? (
           data.map((product) => <ProductCard data={product} />)

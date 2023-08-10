@@ -11,9 +11,9 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (make.trim() === "" && model.trim() === "") {
-      return alert("Please provide Make and Model");
-    }
+    // if (make.trim() === "" && model.trim() === "") {
+    //   return alert("Please provide Make and Model");
+    // }
 
     updateSearchParams(make.toLowerCase(), model.toLowerCase());
   };
@@ -45,22 +45,22 @@ const SearchBar = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="ml-10 mt-6 mb-3 flex gap-2 ">
+      <div className="xl:ml-10 mt-6 mb-3 flex gap-1 ml-2 justify-center">
         <input
-          className="w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:bg-blue-500/10 shadow-md focus:shadow-blue-400"
+          className="xl:w-64 w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:bg-blue-500/10 shadow-md focus:shadow-blue-400"
           type="text"
           name="make"
           value={make}
           onChange={(e) => setMake(e.target.value)}
-          placeholder="Toyota"
+          placeholder="MAKE"
         />
         <input
-          className="w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:bg-blue-500/10 shadow-md focus:shadow-blue-400"
+          className="xl:w-64 w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 focus:bg-blue-500/10 shadow-md focus:shadow-blue-400"
           type="text"
           name="model"
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          placeholder="Cross"
+          placeholder="MODEL"
         />
         <button type="submit">
           <SearchIcon />
