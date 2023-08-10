@@ -24,32 +24,33 @@ const PlaceAdd = () => {
   const [locationx, setLocationx] = useState(null);
   const [btn, showBtn] = useState(true);
   //location functionality
-  if (global.navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        setLocationx({ latitude, longitude });
-      },
-      (error) => {
-        console.error("Error getting location:", error.message);
-      }
-    );
-  } else {
-    console.error("Geolocation is not supported by this browser.");
-  }
 
-  const getLocation = async () => {
-    const locationData = await GetLocationFromCoordinates(
-      locationx.latitude,
-      locationx.longitude
-    );
-    setLocation(locationData.location);
-    console.log(locationData.locality.long_name + "fff");
-    setCarData((prevData) => ({
-      ...prevData,
-      city: locationData.locality.long_name,
-    }));
-  };
+  // if ("geolocation" in navigator) {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       const { latitude, longitude } = position.coords;
+  //       setLocationx({ latitude, longitude });
+  //     },
+  //     (error) => {
+  //       console.error("Error getting location:", error.message);
+  //     }
+  //   );
+  // } else {
+  //   console.error("Geolocation is not supported by this browser.");
+  // }
+
+  // const getLocation = async () => {
+  //   const locationData = await GetLocationFromCoordinates(
+  //     locationx.latitude,
+  //     locationx.longitude
+  //   );
+  //   setLocation(locationData.location);
+  //   console.log(locationData.locality.long_name + "fff");
+  //   setCarData((prevData) => ({
+  //     ...prevData,
+  //     city: locationData.locality.long_name,
+  //   }));
+  // };
 
   const [carData, setCarData] = useState({
     make: "",
@@ -108,7 +109,7 @@ const PlaceAdd = () => {
       fuelType: carData.fuelType,
       description: carData.description,
       phone: carData.phone,
-      location: locationx,
+      location: { latitude: 5656, longitude: 787878 },
       image: productImage,
       username: session.data.user.name,
     };
@@ -221,7 +222,7 @@ const PlaceAdd = () => {
                 ))}
               </div>
             )}
-            <div>
+            {/* <div>
               <button
                 onClick={getLocation}
                 className="bg-gray-300 hover:bg-gray-400 cursor-pointer rounded-lg p-4 flex justify-between gap-1 mt-2"
@@ -230,7 +231,7 @@ const PlaceAdd = () => {
                 <Image src={locationpic} width={20} alt="location" />
               </button>
               {location && <div>Location: {location}</div>}
-            </div>
+            </div> */}
           </div>
           <input
             type="text"
