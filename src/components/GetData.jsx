@@ -36,7 +36,9 @@ const GetData = async ({ allCarsBySearch }) => {
       <div className="mt-4 mx-auto w-[88%] gap-3 sm:w-[96%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 md:gap-3 xl:grid-cols-4 xl:gap-4  2xl:grid-cols-5">
         {/* isMember ? '$2.00' : '$10.00' */}
         {data ? (
-          data.map((product) => <ProductCard data={product} />)
+          data.map((product) => (
+            <ProductCard key={product.image[0].secure_url} data={product} />
+          ))
         ) : (
           <h1>Opps no single items</h1>
         )}

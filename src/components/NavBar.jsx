@@ -31,7 +31,7 @@ const NavBar = () => {
         <div className="hidden md:flex justify-between mt-4 items-center">
           <div className="flex  ml-20 justify-between items-center gap-1">
             <Link href="/">
-              <Image src={main} width={50} height={50} />
+              <Image src={main} width={50} height={50} alt="alt"/>
             </Link>
             <h1 className="font-bold font-mono text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-950 via-purple-900 to-pink-900">
               Car-Forest

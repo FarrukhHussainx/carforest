@@ -31,8 +31,11 @@ export default function Slider({ data }) {
         className="mySwiper"
       >
         {data.image.map((img) => (
-          <SwiperSlide className="h-20 text-red-600 border-green-400">
-            <Image src={img.secure_url} fill />
+          <SwiperSlide
+            key={img.secure_url}
+            className="h-20 text-red-600 border-green-400"
+          >
+            <Image src={img.secure_url} alt="alt" fill />
           </SwiperSlide>
         ))}
       </Swiper>

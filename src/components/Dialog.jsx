@@ -60,6 +60,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                         <Image
                           className="w-[25px] h-[25px] rounded-md"
                           src={steering}
+                          alt="alt"
                         />
                         <h1 className="text-gray-500 capitalize text-lg">
                           Transmission
@@ -74,6 +75,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                         <Image
                           className="w-[25px] h-[25px] rounded-md"
                           src={tyre}
+                          alt="alt"
                         />
                         <h1 className="text-gray-500 capitalize text-lg">
                           Mileage
@@ -88,6 +90,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                         <Image
                           className="w-[25px] h-[25px] rounded-md"
                           src={fuel}
+                          alt="alt"
                         />
                         <h1 className="text-gray-500 capitalize text-lg">
                           Fuel
@@ -102,6 +105,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                         <Image
                           className="w-[25px] h-[25px] rounded-md"
                           src={register}
+                          alt="alt"
                         />
                         <h1 className="text-gray-500 capitalize text-lg">
                           Registered
@@ -114,6 +118,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-1">
                         <Image
+                          alt="alt"
                           className="w-[25px] h-[25px] rounded-md"
                           src={year}
                         />
@@ -128,6 +133,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-1">
                         <Image
+                          alt="alt"
                           className="w-[25px] h-[25px] rounded-md"
                           src={pricetag}
                         />
@@ -142,6 +148,7 @@ export default function MyModal({ data, isOpen, closeModal }) {
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-1">
                         <Image
+                          alt="alt"
                           className="w-[25px] h-[25px] rounded-md"
                           src={call}
                         />

@@ -83,6 +83,7 @@ const ProductCard = ({ data }) => {
           src={data.image[0].secure_url}
           width={200}
           height={200}
+          alt="alt"
         />
         <div className="flex justify-start items-center gap-1 text-blue-900 xl:ml-2 mt-4">
           <h1 className="font-medium capitalize ">{data.make}</h1>
@@ -94,31 +95,55 @@ const ProductCard = ({ data }) => {
         </div>
         <div className="hidden md:flex justify-between gap-3 mt-2">
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={steering} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={steering}
+            />
             <h1 className="text-gray-500 capitalize ">{data.transmission}</h1>
           </div>
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={tyre} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={tyre}
+            />
             <h1 className="text-gray-500">{data.mileage} KM/L</h1>
           </div>
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={fuel} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={fuel}
+            />
             <h1 className="text-gray-500">{data.fuelType}</h1>
           </div>
         </div>
         <div className="flex justify-between gap-3 mt-2 md:hidden">
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={steering} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={steering}
+            />
             <h1 className="text-gray-500 capitalize text-xs">
               {data.transmission}
             </h1>
           </div>
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={tyre} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={tyre}
+            />
             <h1 className="text-gray-500 text-xs">{data.mileage}/L</h1>
           </div>
           <div className="flex flex-col items-center">
-            <Image className="w-[25px] h-[25px] rounded-md" src={fuel} />
+            <Image
+              alt="alt"
+              className="w-[25px] h-[25px] rounded-md"
+              src={fuel}
+            />
             <h1 className="text-gray-500 text-xs">{data.fuelType}</h1>
           </div>
         </div>
