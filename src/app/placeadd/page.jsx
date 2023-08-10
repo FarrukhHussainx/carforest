@@ -24,7 +24,7 @@ const PlaceAdd = () => {
   const [locationx, setLocationx] = useState(null);
   const [btn, showBtn] = useState(true);
   //location functionality
-  if (navigator.geolocation) {
+  if (global.navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
