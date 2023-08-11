@@ -5,7 +5,7 @@ import car from "/public/main.png";
 import locationpic from "/public/location-67.svg";
 import uploadpic from "/public/upload-29.svg";
 import tag from "/public/tag-92.svg";
-import GetLocationFromCoordinates from "@/components/GetLocationFromCoordinates";
+//import GetLocationFromCoordinates from "@/components/GetLocationFromCoordinates";
 import AddAlertIcon from "@mui/icons-material/AddAlert";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
