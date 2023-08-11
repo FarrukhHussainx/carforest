@@ -17,17 +17,17 @@ export default function Component() {
     signIn("credentials", { email, password });
   };
   console.log(session);
-  // if (session.status === "loading") {
-  //   return (
-  //     <div className="w-full h-screen flex items-center justify-center">
-  //       Loading...
-  //     </div>
-  //   );
-  // }
-  // if (session.status === "authenticated") {
-  //   router.push("/placeadd");
-  // }
-  // if (session.status === "unauthenticated") {
+  if (session.status === "loading") {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+  if (session.status === "authenticated") {
+    router.push("/placeadd");
+  }
+  if (session.status === "unauthenticated") {
   return (
     <>
       <div className="hidden h-screen w-[100%] md:flex justify-around items-center ">
