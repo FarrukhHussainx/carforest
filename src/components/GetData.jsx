@@ -9,7 +9,7 @@ async function fetchDataFromApi(allCarsBySearch) {
   const { make, model, page, limit, location, min, max, year } =
     allCarsBySearch;
   const res = await fetch(
-    `https://carforest.vercel.app/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}&min=${min}&max=${max}&year=${year}`
+    `https://api.github.com/api/cardata?make=${make}&model=${model}&page=${page}&limit=${limit}&location=${location}&min=${min}&max=${max}&year=${year}`
   );
 
   // The return value is *not* serialized

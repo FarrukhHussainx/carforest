@@ -97,7 +97,7 @@ const PlaceAdd = () => {
 
   const handleSubmit = async () => {
     showBtn(false);
-    const url = "https://carforest.vercel.app/api/cardata";
+    const url = "https://api.github.com/api/cardata";
     const data = {
       make: carData.make,
       model: carData.model,
