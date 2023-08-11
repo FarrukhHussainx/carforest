@@ -141,17 +141,17 @@ const PlaceAdd = () => {
       console.error("Error:", error);
     }
   };
-  if (session.status === "loading") {
-    return (
-      <div className="w-full h-screen flex items-center justify-center">
-        Loading...
-      </div>
-    );
-  }
-  if (session.status === "unauthenticated") {
-    router.push("/login");
-  }
-  if (session.status === "authenticated") {
+  // if (session.status === "loading") {
+  //   return (
+  //     <div className="w-full h-screen flex items-center justify-center">
+  //       Loading...
+  //     </div>
+  //   );
+  // }
+  // if (session.status === "unauthenticated") {
+  //   router.push("/login");
+  // }
+  // if (session.status === "authenticated") {
     return (
       <div className="">
         <div className="flex flex-col justify-center items-center xl:mt-20 mt-2 mb-8 ">

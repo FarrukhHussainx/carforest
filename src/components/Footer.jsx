@@ -23,14 +23,14 @@ const Footer = () => {
             </h1>
           </div>
 
-          {session.status === "authenticated" && (
+          {/* {session.status === "authenticated" && (
             <button
               className="text-white mr-2 xl:mr-2 hover:text-slate-800"
               onClick={() => signOut()}
             >
               <ExitToAppOutlined /> Sign out
             </button>
-          )}
+          )} */}
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center mt-2  text-white ">
           <div>Copyright © 2023 CarForest. </div>
