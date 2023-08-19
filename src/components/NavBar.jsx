@@ -26,11 +26,19 @@ const NavBar = () => {
         </div>
 
         <div className="md:hidden">
-          <Link href="/placeadd">
-            <SellTwoToneIcon />
-          </Link>
+          {session.status === "unauthenticated" && (
+            <Link href="/login">
+              <SellTwoToneIcon />
+            </Link>
+          )}
+          {session.status === "authenticated" && (
+            <Link href="/placeadd">
+              <SellTwoToneIcon />
+            </Link>
+          )}
         </div>
       </div>
+
       <div className="fixed z-50 left-0 right-0 top-0">
         <div className="hidden md:flex justify-between mt-4 items-center">
           <div className="flex  ml-20 justify-between items-center gap-1">
